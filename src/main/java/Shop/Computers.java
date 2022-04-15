@@ -6,27 +6,39 @@ public class Computers extends Product implements Event{
     String country, type, model, cpu, gpu;
     boolean wi_fi;
 
-    public Computers(){
-        super();
-    }
-    public Computers(String category,String title,int price,int year ,Date currentDate,String country, String type, String model, String cpu, String gpu, int warranty, boolean wi_fi) {
+    public Computers(){}
+    public Computers(String category,String title,double price,int year ,Date currentDate,String country, String type, String model, String cpu, String gpu, int warranty, boolean wi_fi) {
         super(category,title,price,year,warranty,currentDate);
         this.country = country;
         this.type = type;
         this.model = model;
         this.cpu = cpu;
         this.gpu = gpu;
-
         this.wi_fi = wi_fi;
+
+
+        if((getCurrentDate().getYear()+1900)-year >= 4)
+            setPrice(price*9.16);
+        else if ((getCurrentDate().getYear()+1900)-year >= 3)
+            setPrice(price*9.15);
+        else if((getCurrentDate().getYear()+1900)-year >= 2)
+            setPrice(price*9.13);
+        else if((getCurrentDate().getYear()+1900)-year >= 1)
+            setPrice(price*9.1);
+
     }
 
     @Override
     public String getCountry() {return country;}
     @Override
     public void setCountry(String country) {this.country=country;}
+    @Override
     public String getType() {return type;}
+    @Override
     public void setType(String type) {this.type = type;}
+    @Override
     public String getModel() {return model;}
+    @Override
     public void setModel(String model) {this.model = model;}
     public String getCpu() {return cpu;}
     public void setCpu(String cpu) {this.cpu = cpu;}
@@ -36,14 +48,21 @@ public class Computers extends Product implements Event{
     public void setWi_fi(boolean wi_fi) {this.wi_fi = wi_fi;}
 
 
-    public Computers createComputer(String category, String title, int price, int year, Date currentDate, String country, String type, String model, String cpu, String gpu, int warranty, boolean wi_fi) {
+        public void printComputers() {
+            System.out.println("Computer");
+            for (int i = 0; i < computers.size(); i++) {
+                System.out.println("Категория: " + getComputers(i).getCategory() + " " +
+                        "Модель: " + getComputers(i).getModel() + " " +
+                        "Название: " + getComputers(i).getTitle() + " " +
+                        "Процессор: " + getComputers(i).getCpu() + " " +
+                        "Видеокарта: " + getComputers(i).getGpu() + " " +
+                        "Цена: " + getComputers(i).getPrice() + " " +
+                        "Год выпуска: " + getComputers(i).getYear() + " " +
+                        "Гарантия: " + getComputers(i).getWarranty()
+                );
 
-        if((getCurrentDate().getYear()+1900)-year > 5) {
-            System.out.println((getCurrentDate().getYear() + 1900) - year);
-            throw new IllegalArgumentException("computer old, delete it");
+            }
         }
-        return new Computers(category,title,price,year,currentDate,country, type, model, cpu, gpu, warranty, wi_fi);
-    }
 
 
 
