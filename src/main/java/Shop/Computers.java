@@ -6,9 +6,16 @@ public class Computers extends Product implements Event{
     String country, type, model, cpu, gpu;
     boolean wi_fi;
 
+
+    public void checkInStock(){
+        if(getCount_in_stock()<5){
+            throw new RuntimeException("Закупить товар");
+        }
+    }
+
     public Computers(){}
-    public Computers(String category,String title,double price,int year ,Date currentDate,String country, String type, String model, String cpu, String gpu, int warranty, boolean wi_fi) {
-        super(category,title,price,year,warranty,currentDate);
+    public Computers(String category,String title,double price,int year ,Date currentDate,String country, String type, String model, String cpu, String gpu, int warranty, boolean wi_fi,int count_in_stock) {
+        super(category,title,price,year,warranty,currentDate,count_in_stock);
         this.country = country;
         this.type = type;
         this.model = model;
@@ -26,6 +33,7 @@ public class Computers extends Product implements Event{
         else if((getCurrentDate().getYear()+1900)-year >= 1)
             setPrice(price*9.1);
 
+
     }
 
     @Override
@@ -40,6 +48,8 @@ public class Computers extends Product implements Event{
     public String getModel() {return model;}
     @Override
     public void setModel(String model) {this.model = model;}
+
+
     public String getCpu() {return cpu;}
     public void setCpu(String cpu) {this.cpu = cpu;}
     public String getGpu() {return gpu;}

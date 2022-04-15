@@ -8,8 +8,8 @@ public class Appliances extends Product  {
     double powerCordLength;
 
 
-    public Appliances(String category, String title, double price, int year, int warranty, Date currentDate, int voltage, int power, int width, int height, int weight, double powerCordLength) {
-        super(category,title,price,year,warranty,currentDate);
+    public Appliances(String category, String title, double price, int year, int warranty, Date currentDate, int voltage, int power, int width, int height, int weight, double powerCordLength,int count_in_stock) {
+        super(category,title,price,year,warranty,currentDate,count_in_stock);
         this.voltage = voltage;
         this.power = power;
         this.width = width;
@@ -33,22 +33,6 @@ public class Appliances extends Product  {
     public void setPowerCordLength(double powerCordLength) {this.powerCordLength = powerCordLength;}
 
 
-    Appliances createAppliances(String category, String title, double price, int year, int warranty, Date currentDate, int voltage, int power, int width, int height, int weight, double powerCordLength){
 
-        setCategory(category);
-        setTitle(title);
-        setPrice(price);
-        setYear(year);
-        setWarranty(warranty);
-        setCurrentDate(currentDate);
-        this.voltage = voltage;
-        this.power = power;
-        this.width = width;
-        this.height = height;
-        this.weight = weight;
-        this.powerCordLength = powerCordLength;
-
-        return new Appliances(category,title,price,year,warranty,currentDate,voltage,power,width,height,weight,powerCordLength);
-    }
 
 }

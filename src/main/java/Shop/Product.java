@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Product {
    private String category, title;
-   private int year,warranty;
+   private int year,warranty,count_in_stock;
    double price;
    private Date currentDate;
    private Map<java.lang.String,java.lang.String> HashMap;
@@ -16,15 +16,16 @@ public class Product {
     ArrayList<Appliances> appliances = new ArrayList<>();
 
     public  Product(){}
-    public Product(String category, String title, double price, int year, int warranty, Date currentDate) {
+    public Product(String category, String title, double price, int year, int warranty, Date currentDate, int count_in_stock) {
         this.category = category;
         this.title = title;
         this.price = price;
         this.year = year;
         this.warranty=warranty;
         this.currentDate=currentDate;
+        this.count_in_stock=count_in_stock;
 
-        checkCorrectnessDates();
+        //checkCorrectnessDates();
     }
     //get and set
     public String getCategory() {return category;}
@@ -39,6 +40,8 @@ public class Product {
     public void setWarranty(int warranty){this.warranty=warranty;}
     public Date getCurrentDate() {return currentDate;}
     public void setCurrentDate(Date currentDate) {this.currentDate = currentDate;}
+    public int getCount_in_stock() {return count_in_stock;}
+    public void setCount_in_stock(int count_in_stock) {this.count_in_stock = count_in_stock;}
 
     public void addComputers(Computers computers){this.computers.add(computers);}
     public void addTelephones(Telephones telephones){this.telephones.add(telephones);}
@@ -51,11 +54,11 @@ public class Product {
     public void checkCorrectnessDates(){
        // System.out.println("year= "+year);
         if((getCurrentDate().getYear()+1900)-year > 5) {
-            System.out.println((getCurrentDate().getYear() + 1900) - year);
-            throw new IllegalArgumentException("computer old, delete it");
+            //System.out.println((getCurrentDate().getYear() + 1900) - year);
+            throw new RuntimeException("product old, delete it");
         }
 
-        if(warranty<0){throw new IllegalArgumentException("problem with warranty");}
+        if(warranty<0){throw new RuntimeException("problem with warranty");}
 
     }
 

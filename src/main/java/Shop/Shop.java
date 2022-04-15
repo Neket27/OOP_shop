@@ -22,7 +22,8 @@ public class Shop  {
                 "i7",
                 "amd99",
                 2,
-                true);
+                true,
+                4);
       //  @builder
 //        comp.createComputer(
 //                "Компьютеры",
@@ -59,7 +60,8 @@ public class Shop  {
                 "amd99",
                 3,
                 true,
-                "amoled");
+                "amoled",
+                    3);
 
         tel.addTelephones(tel);
         tel.printTelephones();

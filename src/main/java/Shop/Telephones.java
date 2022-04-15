@@ -5,10 +5,15 @@ import java.util.Date;
 public class Telephones extends Product implements Event {
     String country, type, model, cpu, gpu, display;
     boolean wi_fi;
+    public void checkInStock(){
+        if(getCount_in_stock()<10){
+            throw new RuntimeException("Закупить товар");
+        }
+    }
 
     public Telephones() {}
-    public Telephones(String category, String title, double price, int year, Date currentYear, String country, String type, String model, String cpu, String gpu, int warranty, boolean wi_fi, String display) {
-        super(category, title, price, year, warranty, currentYear);
+    public Telephones(String category, String title, double price, int year, Date currentYear, String country, String type, String model, String cpu, String gpu, int warranty ,boolean wi_fi, String display,int count_in_stock) {
+        super(category, title, price, year, warranty, currentYear,count_in_stock);
         this.country = country;
         this.type = type;
         this.model = model;
@@ -16,6 +21,7 @@ public class Telephones extends Product implements Event {
         this.gpu = gpu;
         this.wi_fi = wi_fi;
         this.display = display;
+
 
         checkCorrectnessDates();
 
