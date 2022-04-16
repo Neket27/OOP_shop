@@ -2,7 +2,7 @@ package Shop;
 
 import java.util.Date;
 
-public class Telephones extends Product implements Event {
+public class Telephones extends Product implements EventProduct {
     String country, type, model, cpu, gpu, display;
     boolean wi_fi;
     public void checkInStock(){

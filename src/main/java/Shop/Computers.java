@@ -2,7 +2,7 @@ package Shop;
 
 import java.util.Date;
 
-public class Computers extends Product implements Event{
+public class Computers extends Product implements EventProduct {
     String country, type, model, cpu, gpu;
     boolean wi_fi;
 

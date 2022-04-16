@@ -33,6 +33,23 @@ public class Appliances extends Product  {
     public void setPowerCordLength(double powerCordLength) {this.powerCordLength = powerCordLength;}
 
 
+    public void printAppliances(){
+        System.out.println("Telephone");
+        for(int i=0; i<telephones.size();i++){
+            System.out.println("Категория: "+getAppliances(i).getCategory()+" "+
+                    " Название: "+getAppliances(i).getTitle()+" "+
+                    " Мощность: "+getAppliances(i).getPower()+" "+
+                    " Вольтаж: "+getAppliances(i).getVoltage()+" "+
+                    " Ширина: "+ getAppliances(i).getWidth()+" "+
+                    " Высота: "+ getAppliances(i).getHeight()+" "+
+                    " Вес: "+ getAppliances(i).getWeight()+" "+
+                    " Длина провода: "+ getAppliances(i).getPowerCordLength()+" "+
+                    " Цена: "+getAppliances(i).getPrice()+" "+
+                    " Год выпуска: "+getAppliances(i).getYear()+" "+
+                    " Гарантия: "+ getAppliances(i).getWarranty()
 
+            );
+
+        }    }
 
 }

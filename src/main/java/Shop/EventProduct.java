@@ -1,6 +1,6 @@
 package Shop;
-import java.util.Date;
-public interface Event {
+
+public interface EventProduct {
 
     public String getCountry();
     public void  setCountry(String country);
@@ -9,4 +9,5 @@ public interface Event {
     public String getModel();
     public void setModel(String model);
     public void checkInStock();
+
 }

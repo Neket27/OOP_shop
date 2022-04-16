@@ -63,7 +63,7 @@ public class Product {
     }
 
 
-    public void printAppliances(){}
+
 
 
     public void product() {

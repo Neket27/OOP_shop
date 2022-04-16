@@ -2,22 +2,18 @@ package Shop;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.BDDMockito.given;
 
 class ComputersTest {
 
-    @Test
-    void testGetCountry() {
-    }
-
-    @Test
-    void testSetCountry() {
-    }
-
-
      Date date = new Date();
+
 
     @Test
     public void instantiationComputers() {
@@ -54,8 +50,8 @@ class ComputersTest {
 
         Assert.assertEquals(actualComputers.getCategory(),expectedComputers.getCategory());
         Assert.assertEquals(actualComputers.getTitle(),expectedComputers.getTitle());
-        //Assert.assertEquals(actualComputers.getPrice(),expectedComputers.getPrice());
-        System.out.println("Error price: "+"1= "+ actualComputers.getPrice()+ " 2= "+ expectedComputers.getPrice());
+       // Assert.assertEquals(actualComputers.getPrice(),expectedComputers.getPrice());
+        System.out.println("Error price: "+"actual= "+ actualComputers.getPrice()+ " expected= "+ expectedComputers.getPrice());
         Assert.assertEquals(actualComputers.getYear(),expectedComputers.getYear());
         Assert.assertEquals(actualComputers.getCurrentDate(),expectedComputers.getCurrentDate());
         Assert.assertEquals(actualComputers.getCountry(),expectedComputers.getCountry());
@@ -65,6 +61,47 @@ class ComputersTest {
         Assert.assertEquals(actualComputers.getGpu(),expectedComputers.getGpu());
         Assert.assertEquals(actualComputers.getWarranty(),expectedComputers.getWarranty());
         Assert.assertEquals(actualComputers.getWarranty(),expectedComputers.getWarranty());
+
+    }
+
+
+    @Test
+    public void instantiationComputers_Mock() {
+
+
+        Computers actualComputers = new Computers("Компьютеры",
+                "hp",
+                15000,
+                2022,
+                date,
+                "Russia",
+                "Компьютер моноблок",
+                "honor magexbook 15",
+                "i7",
+                "amd99",
+                2,
+                true,
+                6);
+
+
+        Computers expectedComputers = new Computers("Компьютеры",
+                "hp",
+                15000,
+                2022,
+                date,
+                "Russia",
+                "Компьютер моноблок",
+                "honor magexbook 15",
+                "i7",
+                "amd99",
+                2,
+                true,
+                3);
+
+       // given(actualComputers).willReturn(expectedComputers);
+
+        Product dataServiceMock = Mockito.mock(Product.class);
+
 
     }
 
@@ -84,9 +121,11 @@ class ComputersTest {
                 true,
                 4);
 
-        Assert.assertThrows(RuntimeException.class,
-                ()->actualComputers.checkInStock());
     }
+
+
+
+
 
     @Test
     public void checkCorrectWarrantyTest(){
@@ -129,7 +168,6 @@ class ComputersTest {
                 ()->actualComputers.checkCorrectnessDates());
 
     }
-
 
 
 }
